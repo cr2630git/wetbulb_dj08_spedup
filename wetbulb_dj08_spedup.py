@@ -151,7 +151,6 @@ def WetBulb(TemperatureC,Pressure,Humidity,HumidityMode=0):
         mixr = mixr * 1000
     elif HumidityMode==1:
         relhum = Humidity                # relative humidity (%)
-        qin = rs * relhum * 0.01         # specific humidity
         vape = es * relhum * 0.01        # vapor pressure (Pa)
         mixr = epsilon * vape / (Pressure-vape)  #corrected by Rob Warren
     
