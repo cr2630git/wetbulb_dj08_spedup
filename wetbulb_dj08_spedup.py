@@ -148,11 +148,12 @@ def WetBulb(TemperatureC,Pressure,Humidity,HumidityMode=0):
         mixr = (qin / (1-qin))           # corrected by Rob Warren
         vape = (Pressure * mixr) / (epsilon + mixr) #corrected by Rob Warren
         relhum = 100.0 * vape/es         # corrected by Rob Warren
-        mixr = mixr * 1000
     elif HumidityMode==1:
         relhum = Humidity                # relative humidity (%)
         vape = es * relhum * 0.01        # vapor pressure (Pa)
         mixr = epsilon * vape / (Pressure-vape)  #corrected by Rob Warren
+
+    mixr = mixr * 1000
     
     # Calculate Equivalent Pot. Temp (Pressure, T, mixing ratio (g/kg), pott, epott)
     # Calculate Parameters for Wet Bulb Temp (epott, Pressure)
